@@ -49,5 +49,9 @@
   "Category": {
     "dataSource": "db",
     "public": true
+  },
+  "Contribution": {
+    "dataSource": "db",
+    "public": true
   }
 }

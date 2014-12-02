@@ -19,7 +19,19 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "cartoparties": {
+      "type": "hasMany",
+      "model": "Cartoparty",
+      "foreignKey": "",
+      "through": "Contribution"
+    },
+    "owns": {
+      "type": "hasMany",
+      "model": "Cartoparty",
+      "foreignKey": "ownerId"
+    }
+  },
   "acls": [],
   "methods": []
 }

@@ -16,7 +16,19 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "users": {
+      "type": "hasMany",
+      "model": "user",
+      "foreignKey": "",
+      "through": "Contribution"
+    },
+    "records": {
+      "type": "hasMany",
+      "model": "Record",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": []
 }

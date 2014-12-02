@@ -1,0 +1,19 @@
+{
+  "name": "Contribution",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "userId": {
+      "type": "number",
+      "required": true
+    },
+    "cartopartyId": {
+      "type": "object",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

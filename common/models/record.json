@@ -16,7 +16,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "categories": {
+      "type": "hasMany",
+      "model": "Category",
+      "foreignKey": ""
+    },
+    "points": {
+      "type": "hasMany",
+      "model": "Point",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": []
 }
