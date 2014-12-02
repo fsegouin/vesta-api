@@ -1,0 +1,25 @@
+{
+  "name": "user",
+  "plural": "users",
+  "base": "User",
+  "strict": false,
+  "idInjection": false,
+  "properties": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "birthDate": {
+      "type": "string"
+    },
+    "borndate": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

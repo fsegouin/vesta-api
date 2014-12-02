@@ -1,0 +1,22 @@
+{
+  "name": "City",
+  "plural": "Cities",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "properties": {
+    "postalcode": {
+      "type": "string"
+    },
+    "cityname": {
+      "type": "string"
+    },
+    "inseecode": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
