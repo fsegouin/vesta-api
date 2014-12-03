@@ -17,15 +17,14 @@
   },
   "validations": [],
   "relations": {
-    "users": {
-      "type": "hasMany",
-      "model": "user",
-      "foreignKey": "",
-      "through": "Contribution"
-    },
     "records": {
       "type": "hasMany",
       "model": "Record",
+      "foreignKey": "cartopartyId"
+    },
+    "users": {
+      "type": "hasAndBelongsToMany",
+      "model": "user",
       "foreignKey": ""
     }
   },
