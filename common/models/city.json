@@ -16,7 +16,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "takesPlace": {
+      "type": "hasMany",
+      "model": "Cartoparty",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": []
 }

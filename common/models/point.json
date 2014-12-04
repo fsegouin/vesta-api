@@ -10,7 +10,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "record": {
+      "type": "belongsTo",
+      "model": "Record",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": []
 }

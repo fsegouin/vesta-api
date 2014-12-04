@@ -19,7 +19,25 @@
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+    "leads": {
+      "type": "hasMany",
+      "model": "Cartoparty",
+      "foreignKey": "ownerId"
+    },
+    "cartoparties": {
+      "type": "hasAndBelongsToMany",
+      "model": "Cartoparty",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": []
 }
