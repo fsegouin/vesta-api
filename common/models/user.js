@@ -1,2 +1,2 @@
-module.exports = function(User) {
+module.exports = function(User) {	
 };
