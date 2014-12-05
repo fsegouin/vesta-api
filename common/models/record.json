@@ -6,19 +6,23 @@
   "idInjection": false,
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "note": {
       "type": "string"
     },
     "picture": {
       "type": "string"
+    },
+    "userId": {
+      "type": "number"
     }
   },
   "validations": [],
   "relations": {
     "categories": {
-      "type": "hasMany",
+      "type": "hasAndBelongsToMany",
       "model": "Category",
       "foreignKey": ""
     },
@@ -28,6 +32,44 @@
       "foreignKey": ""
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "*"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
+      },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__get__points"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__create__points"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__delete__points"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__link__categories"
+    }
+  ],
   "methods": []
 }

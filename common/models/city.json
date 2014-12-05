@@ -6,10 +6,12 @@
   "idInjection": false,
   "properties": {
     "postalcode": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "cityname": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "inseecode": {
       "type": "string"
@@ -17,8 +19,8 @@
   },
   "validations": [],
   "relations": {
-    "takesPlace": {
-      "type": "hasMany",
+    "cartoparties": {
+      "type": "hasAndBelongsToMany",
       "model": "Cartoparty",
       "foreignKey": ""
     }

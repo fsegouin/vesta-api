@@ -6,7 +6,8 @@
   "idInjection": false,
   "properties": {
     "coordinates": {
-      "type": "geopoint"
+      "type": "geopoint",
+      "required": true
     }
   },
   "validations": [],
@@ -17,6 +18,13 @@
       "foreignKey": ""
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "*"
+    }
+  ],
   "methods": []
 }
