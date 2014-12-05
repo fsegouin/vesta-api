@@ -45,7 +45,7 @@
   },
   "Point": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "Category": {
     "dataSource": "db",
