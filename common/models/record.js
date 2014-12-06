@@ -8,10 +8,10 @@ module.exports = function(Record) {
 				cb(err, records);
 			}
 		});
-	}
-	
+	};
+
 	Record.remoteMethod(
-        'allRecords', 
+        'allRecords',
         {
 			http: {verb: 'get', path: '/fromUser/:id'},
 			accepts: {arg: 'id', type: 'number', required: true},
