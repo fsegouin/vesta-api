@@ -13,9 +13,6 @@
     },
     "birthDate": {
       "type": "string"
-    },
-    "borndate": {
-      "type": "string"
     }
   },
   "validations": [],
@@ -52,6 +49,13 @@
       "principalId": "$owner",
       "permission": "ALLOW",
       "property": "__create__leads"
+    },
+    {
+      "accessType" : "*",
+      "principalType" : "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__updateById__leads"
     },
     {
       "accessType": "*",

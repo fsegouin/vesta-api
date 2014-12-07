@@ -27,7 +27,7 @@ module.exports = function(app) {
       if (err) {
         console.error(err);
       } else {
-        console.log('10 user accounts have been created:', users);
+        // console.log('10 user accounts have been created:', users);
         Cartoparty.create([
           {description: 'Toilettes publiques de Reims', from: '04-04-15',
           to: '06-05-15', ownerId: users[0].id},
@@ -41,14 +41,14 @@ module.exports = function(app) {
             if (err) {
               console.error(err);
             } else {
-              console.log('4 cartoparties instances have been created:',
-              cartopartiesCreated);
+              // console.log('4 cartoparties instances have been created:',
+              // cartopartiesCreated);
               cartopartiesCreated[0].users.add(users[0] ,
                 function (err, links) {
                   if (err) {
                     console.error(err);
                   } else {
-                    console.log('User 1 is now subscribed to cartoparty 1');
+                    // console.log('User 1 is now subscribed to cartoparty 1');
                   }
                 });
                 cartopartiesCreated[0].users.add(users[1] ,
@@ -56,7 +56,7 @@ module.exports = function(app) {
                     if (err) {
                       console.error(err);
                     } else {
-                      console.log('User 2 is now subscribed to cartoparty 1');
+                      // console.log('User 2 is now subscribed to cartoparty 1');
                     }
                   });
                   cartopartiesCreated[0].users.add(users[2] ,
@@ -64,7 +64,7 @@ module.exports = function(app) {
                       if (err) {
                         console.error(err);
                       } else {
-                        console.log('User 3 is now subscribed to cartoparty 1');
+                        // console.log('User 3 is now subscribed to cartoparty 1');
                       }
                     });
                     cartopartiesCreated[0].users.add(users[3] ,
@@ -72,7 +72,7 @@ module.exports = function(app) {
                         if (err) {
                           console.error(err);
                         } else {
-                          console.log('User 4 is now subscribed to cartoparty 1');
+                          // console.log('User 4 is now subscribed to cartoparty 1');
                         }
                       });
                       cartopartiesCreated[1].users.add(users[0] ,
@@ -80,7 +80,7 @@ module.exports = function(app) {
                           if (err) {
                             console.error(err);
                           } else {
-                            console.log('User 1 is now subscribed to cartoparty 2');
+                            // console.log('User 1 is now subscribed to cartoparty 2');
                           }
                         });
                         cartopartiesCreated[1].users.add(users[4] ,
@@ -88,7 +88,7 @@ module.exports = function(app) {
                             if (err) {
                               console.error(err);
                             } else {
-                              console.log('User 5 is now subscribed to cartoparty 2');
+                              // console.log('User 5 is now subscribed to cartoparty 2');
                             }
                           });
                           cartopartiesCreated[1].users.add(users[5] ,
@@ -96,7 +96,7 @@ module.exports = function(app) {
                               if (err) {
                                 console.error(err);
                               } else {
-                                console.log('User 6 is now subscribed to cartoparty 2');
+                                // console.log('User 6 is now subscribed to cartoparty 2');
                               }
                             });
                             Category.create([
@@ -109,19 +109,19 @@ module.exports = function(app) {
                                 if (err) {
                                   console.error(err);
                                 } else {
-                                  console.log('5 categories have been created:', categories);
+                                  // console.log('5 categories have been created:', categories);
                                   cartopartiesCreated[0].records.create(
                                     {name: 'Pharmacie du centre', note: 'Ouverte du lundi au vendredi', userId: users[0].id},
                                     function (err, record) {
                                       if (err) {
                                         console.error (err);
                                       } else {
-                                        console.log('Record created by User 1:', record);
+                                        // console.log('Record created by User 1:', record);
                                         categories[0].records.add(record, function (err, link) {
                                           if (err) {
                                             console.error(err);
                                           } else {
-                                            console.log('Record 1 is now in Category 1');
+                                            // console.log('Record 1 is now in Category 1');
                                             Point.create(
                                               {coordinates: {lat: 64.124596, lng: -147.86327},
                                               recordId: record.id},
@@ -129,14 +129,14 @@ module.exports = function(app) {
                                                 if (err) {
                                                   console.error(err);
                                                 } else {
-                                                  console.log('Point 1 added to Record 1');
+                                                  // console.log('Point 1 added to Record 1');
                                                   User.login(
                                                     {email: 'test0@test.fr', password: 'test'},
                                                     function (err, acessToken) {
                                                       if (err) {
                                                         console.error('Error while trying to get a token:', err);
                                                       } else {
-                                                        console.log('Token generated for user test0:', acessToken.id);
+                                                        // console.log('Token generated for user test0:', acessToken.id);
                                                       }
                                                     });
                                                   }

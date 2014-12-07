@@ -59,7 +59,7 @@
     },
     {
       "principalType": "ROLE",
-      "principalId": "$authenticated",
+      "principalId": "cartopartyMember",
       "permission": "ALLOW",
       "property": "__link__cities"
     },
@@ -76,17 +76,10 @@
       "property": "__create__records"
     },
     {
-      "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
-      "property": "users"
-    },
-    {
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": "__link__users"
+      "property": "__get__users"
     }
   ],
   "methods": []
