@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "main": "server/server.js",
   "scripts": {
-    "pretest": "jshint ."
+    "pretest": "jshint .",
+    "test": "mocha --reporter nyan test/*.js"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -17,7 +18,9 @@
     "loopback-explorer": "^1.1.0"
   },
   "devDependencies": {
-    "jshint": "^2.5.6"
+    "jshint": "^2.5.6",
+    "mocha": "^2.0.1",
+    "supertest": "^0.15.0"
   },
   "engines": {
     "node": "0.10.x"
