@@ -289,6 +289,21 @@ describe('REST', function() {
       });
     });
 
+    describe('GET /Records/fromUser/:id', function() {
+      it('should return a list of all records saved from a given user id', function(done) {
+        json('get', '/api/Records/fromUser/' + userId)
+        .set('Authorization', token.id)
+        .expect(200, function(err, res) {
+          assert(typeof res.body === 'object');
+          assert(typeof res.body['records'] === 'object');
+          assert(res.body['records'][0].id, 'must have an id');
+          assert.equal(res.body['records'][0].cartopartyId, cartopartyId);
+          assert.equal(res.body['records'][0].userId, userId);
+          done();
+        });
+      });
+    });
+
   });
 
 });
