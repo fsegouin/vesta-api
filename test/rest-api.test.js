@@ -168,6 +168,19 @@ describe('REST', function() {
       });
     });
 
+    describe('GET /api/Cartoparties/:id/leader', function() {
+      it('should return a user who owns a Cartoparty with a given id', function(done) {
+        json('get', '/api/Cartoparties/' + cartopartyId + '/leader')
+        .set('Authorization', token.id)
+        .expect(200)
+        .end(function(err, res) {
+		  assert(typeof res.body === 'object');
+          assert.equal(res.body.id, userId);
+          done();
+        });
+      });
+    });
+
     describe('POST /Cities', function() {
       it('should create a new city', function(done) {
         json('post', '/api/Cities/')
