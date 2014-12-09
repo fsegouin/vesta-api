@@ -34,6 +34,11 @@
       "type": "hasAndBelongsToMany",
       "model": "City",
       "foreignKey": ""
+    },
+    "leader": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "ownerId"
     }
   },
   "acls": [
@@ -80,6 +85,12 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "__get__users"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__get__leader"
     }
   ],
   "methods": []
