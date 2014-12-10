@@ -27,7 +27,7 @@ module.exports = function(app) {
       if (err) {
         console.error(err);
       } else {
-        // console.log('10 user accounts have been created:', users);
+
         Cartoparty.create([
           {description: 'Toilettes publiques de Reims', from: '04-04-15',
           to: '06-05-15', ownerId: users[0].id},
@@ -41,8 +41,6 @@ module.exports = function(app) {
             if (err) {
               console.error(err);
             } else {
-              // console.log('4 cartoparties instances have been created:',
-              // cartopartiesCreated);
               cartopartiesCreated[0].users.add(users[0] ,
                 function (err, links) {
                   if (err) {
@@ -99,6 +97,43 @@ module.exports = function(app) {
                                 // console.log('User 6 is now subscribed to cartoparty 2');
                               }
                             });
+
+                            City.create([
+                              {postalcode: '51100', cityname: 'Reims'},
+                              {postalcode: '75000', cityname: 'Paris'},
+                              {postalcode: '69000', cityname: 'Lyon'},
+                              {postalcode: '13000', cityname: 'Marseille'}
+                              ], function (err, cities) {
+                                if (err) {
+                                  console.error(err);
+                                } else {
+                                  cartopartiesCreated[0].cities.add(cities[0],
+                                    function (err, link) {
+                                      if (err) {
+                                        console.error(err);
+                                      }
+                                    });
+                                  cartopartiesCreated[1].cities.add(cities[1],
+                                    function (err, link) {
+                                      if (err) {
+                                        console.error(err);
+                                      }
+                                    });
+                                  cartopartiesCreated[2].cities.add(cities[2],
+                                    function (err, link) {
+                                      if (err) {
+                                        console.error(err);
+                                      }
+                                    });
+                                  cartopartiesCreated[3].cities.add(cities[3],
+                                    function (err, link) {
+                                      if (err) {
+                                        console.error(err);
+                                      }
+                                    });
+                                  }
+                              });
+
                             Category.create([
                               {name: 'Bancs publics', description: 'Bancs avec un accès libre'},
                               {name: 'Toilettes publiques', description: 'Uniquement les toilettes sur la place publique'},
