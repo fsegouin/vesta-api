@@ -13,16 +13,36 @@ module.exports = function(app) {
   var Point = app.models.Point;
 
   User.create([
-    {email: 'test0@test.fr', password: 'test'},
-    {email: 'test1@test.fr', password: 'test'},
-    {email: 'test2@test.fr', password: 'test'},
-    {email: 'test3@test.fr', password: 'test'},
-    {email: 'test4@test.fr', password: 'test'},
-    {email: 'test5@test.fr', password: 'test'},
-    {email: 'test6@test.fr', password: 'test'},
-    {email: 'test7@test.fr', password: 'test'},
-    {email: 'test8@test.fr', password: 'test'},
-    {email: 'test9@test.fr', password: 'test'}
+    {email: 'test0@test.fr', username: 'mbrewer', password: 'test',
+    firstname: 'Mattie', lastname: 'Brewer', city: 'Avignon', expert: 'true',
+    picture: 'http://api.randomuser.me/portraits/med/women/55.jpg'},
+    {email: 'test1@test.fr', username: 'hfuller', password: 'test',
+    firstname: 'Harry', lastname: 'Fuller', city: 'Grenoble', moderator: 'true',
+    picture: 'http://api.randomuser.me/portraits/med/men/53.jpg'},
+    {email: 'test2@test.fr', username: 'cvasquez', password: 'test',
+    firstname: 'Cory', lastname: 'Vasquez', city: 'Chartres', expert: 'true',
+    picture: 'http://api.randomuser.me/portraits/med/men/62.jpg'},
+    {email: 'test3@test.fr', username: 'sreed', password: 'test',
+    firstname: 'Sara', lastname: 'Reed', city: 'Paris', expert: 'true',
+    picture: 'http://api.randomuser.me/portraits/med/women/0.jpg'},
+    {email: 'test4@test.fr', username: 'lmckinney', password: 'test',
+    firstname: 'Lynn', lastname: 'Mckinney', city: 'Clermont-Ferrand',
+    picture: 'http://api.randomuser.me/portraits/med/women/80.jpg'},
+    {email: 'test5@test.fr', username: 'ndavis', password: 'test',
+    firstname: 'Noelle', lastname: 'Davis', city: 'Lille',
+    picture: 'http://api.randomuser.me/portraits/med/women/57.jpg'},
+    {email: 'test6@test.fr', username: 'cgordon', password: 'test',
+    firstname: 'Caleb', lastname: 'Gordon', city: 'Lyon',
+    picture: 'http://api.randomuser.me/portraits/med/men/25.jpg'},
+    {email: 'test7@test.fr', username: 'ccampbell', password: 'test',
+    firstname: 'Christy', lastname: 'Campbell', city: 'Marseille',
+    picture: 'http://api.randomuser.me/portraits/med/women/41.jpg'},
+    {email: 'test8@test.fr', username: 'jkelly', password: 'test',
+    firstname: 'Jose', lastname: 'Kelly', city: 'Montpellier', elder: 'true',
+    picture: 'http://api.randomuser.me/portraits/med/men/51.jpg'},
+    {email: 'test9@test.fr', username: 'rowens', password: 'test',
+    firstname: 'Ruby', lastname: 'Owens', city: 'Reims', elder: 'true',
+    picture: 'http://api.randomuser.me/portraits/med/women/49.jpg'}
     ], function (err, users) {
       if (err) {
         console.error(err);
@@ -65,14 +85,6 @@ module.exports = function(app) {
                         // console.log('User 3 is now subscribed to cartoparty 1');
                       }
                     });
-                    cartopartiesCreated[0].users.add(users[3] ,
-                      function (err, links) {
-                        if (err) {
-                          console.error(err);
-                        } else {
-                          // console.log('User 4 is now subscribed to cartoparty 1');
-                        }
-                      });
                       cartopartiesCreated[1].users.add(users[0] ,
                         function (err, links) {
                           if (err) {
@@ -97,6 +109,32 @@ module.exports = function(app) {
                                 // console.log('User 6 is now subscribed to cartoparty 2');
                               }
                             });
+
+                            cartopartiesCreated[2].users.add(users[0] ,
+                              function (err, links) {
+                                if (err) {
+                                  console.error(err);
+                                } else {
+                                  // console.log('User 1 is now subscribed to cartoparty 2');
+                                }
+                              });
+
+                              cartopartiesCreated[3].users.add(users[0] ,
+                                function (err, links) {
+                                  if (err) {
+                                    console.error(err);
+                                  } else {
+                                    // console.log('User 1 is now subscribed to cartoparty 2');
+                                  }
+                                });
+                                cartopartiesCreated[3].users.add(users[3] ,
+                                  function (err, links) {
+                                    if (err) {
+                                      console.error(err);
+                                    } else {
+                                      // console.log('User 4 is now subscribed to cartoparty 1');
+                                    }
+                                  });
 
                             City.create([
                               {postalcode: '51100', cityname: 'Reims'},
