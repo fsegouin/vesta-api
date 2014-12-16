@@ -1,3 +1,10 @@
 language: node_js
 node_js:
-    - "0.10"
+- '0.10'
+deploy:
+  provider: heroku
+  api_key:
+    secure: oGtBi7nL6QZoIjyaLgXihGp2A5zGTgWlEiqneLo7kWOqOvy6+vtdtx1kCLLJhal+Fr1rbsCGSUEWWaO7S/wv/z0QUhmZILUmnC73V1k2t9QEfEo0VOXw1E3nd+3LOyeE0hM9Fi+Judl/xGhZl062yLHyMkbEpq8gBsf/Y9Jq9N4=
+  app: vesta-api
+  on:
+    repo: fsegouin/vesta-api
