@@ -76,6 +76,12 @@
     },
     {
       "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__count__records"
+    },
+    {
+      "principalType": "ROLE",
       "principalId": "cartopartyMember",
       "permission": "ALLOW",
       "property": "__create__records"
@@ -85,6 +91,12 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "__get__users"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__count__users"
     },
     {
       "principalType": "ROLE",
