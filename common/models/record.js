@@ -14,7 +14,7 @@ module.exports = function(Record) {
         'allRecords',
         {
 			http: {verb: 'get', path: '/fromUser/:id'},
-			accepts: {arg: 'id', type: 'number', required: true},
+			accepts: {arg: 'id', type: 'any', required: true},
 			returns: {arg: 'records', type: 'object'}
         }
     );

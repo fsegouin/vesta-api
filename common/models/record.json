@@ -16,7 +16,7 @@
       "type": "string"
     },
     "userId": {
-      "type": "object"
+      "type": "string"
     }
   },
   "validations": [],
