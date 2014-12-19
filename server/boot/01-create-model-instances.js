@@ -3,7 +3,7 @@
 // Please do not use in production.
 //
 
-module.exports = function(app) {
+function createModels(app) {
 
   var User = app.models.user;
   var Cartoparty = app.models.Cartoparty;
@@ -85,32 +85,41 @@ module.exports = function(app) {
                         // console.log('User 3 is now subscribed to cartoparty 1');
                       }
                     });
-                      cartopartiesCreated[1].users.add(users[0] ,
+                    cartopartiesCreated[1].users.add(users[0] ,
+                      function (err, links) {
+                        if (err) {
+                          console.error(err);
+                        } else {
+                          // console.log('User 1 is now subscribed to cartoparty 2');
+                        }
+                      });
+                      cartopartiesCreated[1].users.add(users[4] ,
                         function (err, links) {
                           if (err) {
                             console.error(err);
                           } else {
-                            // console.log('User 1 is now subscribed to cartoparty 2');
+                            // console.log('User 5 is now subscribed to cartoparty 2');
                           }
                         });
-                        cartopartiesCreated[1].users.add(users[4] ,
+                        cartopartiesCreated[1].users.add(users[5] ,
                           function (err, links) {
                             if (err) {
                               console.error(err);
                             } else {
-                              // console.log('User 5 is now subscribed to cartoparty 2');
+                              // console.log('User 6 is now subscribed to cartoparty 2');
                             }
                           });
-                          cartopartiesCreated[1].users.add(users[5] ,
+
+                          cartopartiesCreated[2].users.add(users[0] ,
                             function (err, links) {
                               if (err) {
                                 console.error(err);
                               } else {
-                                // console.log('User 6 is now subscribed to cartoparty 2');
+                                // console.log('User 1 is now subscribed to cartoparty 2');
                               }
                             });
 
-                            cartopartiesCreated[2].users.add(users[0] ,
+                            cartopartiesCreated[3].users.add(users[0] ,
                               function (err, links) {
                                 if (err) {
                                   console.error(err);
@@ -118,110 +127,126 @@ module.exports = function(app) {
                                   // console.log('User 1 is now subscribed to cartoparty 2');
                                 }
                               });
-
-                              cartopartiesCreated[3].users.add(users[0] ,
+                              cartopartiesCreated[3].users.add(users[3] ,
                                 function (err, links) {
                                   if (err) {
                                     console.error(err);
                                   } else {
-                                    // console.log('User 1 is now subscribed to cartoparty 2');
+                                    // console.log('User 4 is now subscribed to cartoparty 1');
                                   }
                                 });
-                                cartopartiesCreated[3].users.add(users[3] ,
-                                  function (err, links) {
+
+                                City.create([
+                                  {postalcode: '51100', cityname: 'Reims'},
+                                  {postalcode: '75000', cityname: 'Paris'},
+                                  {postalcode: '69000', cityname: 'Lyon'},
+                                  {postalcode: '13000', cityname: 'Marseille'}
+                                  ], function (err, cities) {
                                     if (err) {
                                       console.error(err);
                                     } else {
-                                      // console.log('User 4 is now subscribed to cartoparty 1');
-                                    }
-                                  });
-
-                            City.create([
-                              {postalcode: '51100', cityname: 'Reims'},
-                              {postalcode: '75000', cityname: 'Paris'},
-                              {postalcode: '69000', cityname: 'Lyon'},
-                              {postalcode: '13000', cityname: 'Marseille'}
-                              ], function (err, cities) {
-                                if (err) {
-                                  console.error(err);
-                                } else {
-                                  cartopartiesCreated[0].cities.add(cities[0],
-                                    function (err, link) {
-                                      if (err) {
-                                        console.error(err);
-                                      }
-                                    });
-                                  cartopartiesCreated[1].cities.add(cities[1],
-                                    function (err, link) {
-                                      if (err) {
-                                        console.error(err);
-                                      }
-                                    });
-                                  cartopartiesCreated[2].cities.add(cities[2],
-                                    function (err, link) {
-                                      if (err) {
-                                        console.error(err);
-                                      }
-                                    });
-                                  cartopartiesCreated[3].cities.add(cities[3],
-                                    function (err, link) {
-                                      if (err) {
-                                        console.error(err);
-                                      }
-                                    });
-                                  }
-                              });
-
-                            Category.create([
-                              {name: 'Bancs publics', description: 'Bancs avec un accès libre'},
-                              {name: 'Toilettes publiques', description: 'Uniquement les toilettes sur la place publique'},
-                              {name: 'Parcs', description: 'Parcs en accès libre ou payant'},
-                              {name: 'Boîtes aux lettres', description: 'Boîtes aux lettres de la Poste'},
-                              {name: 'Pharmacies', description: 'Pharmacies ou parapharmacies'}
-                              ], function (err, categories) {
-                                if (err) {
-                                  console.error(err);
-                                } else {
-                                  // console.log('5 categories have been created:', categories);
-                                  cartopartiesCreated[0].records.create(
-                                    {name: 'Pharmacie du centre', note: 'Ouverte du lundi au vendredi', userId: users[0].id},
-                                    function (err, record) {
-                                      if (err) {
-                                        console.error (err);
-                                      } else {
-                                        // console.log('Record created by User 1:', record);
-                                        categories[0].records.add(record, function (err, link) {
+                                      cartopartiesCreated[0].cities.add(cities[0],
+                                        function (err, link) {
                                           if (err) {
                                             console.error(err);
-                                          } else {
-                                            // console.log('Record 1 is now in Category 1');
-                                            Point.create(
-                                              {coordinates: {lat: 64.124596, lng: -147.86327},
-                                              recordId: record.id},
-                                              function (err, record) {
-                                                if (err) {
-                                                  console.error(err);
-                                                } else {
-                                                  // console.log('Point 1 added to Record 1');
-                                                  User.login(
-                                                    {email: 'test0@test.fr', password: 'test'},
-                                                    function (err, acessToken) {
-                                                      if (err) {
-                                                        console.error('Error while trying to get a token:', err);
-                                                      } else {
-                                                        // console.log('Token generated for user test0:', acessToken.id);
-                                                      }
-                                                    });
-                                                  }
-                                                });
-                                              }
-                                            });
                                           }
                                         });
-                                      }
-                                    });
-                                  }
-                                });
-                              }
-                            });
-                          };
+                                        cartopartiesCreated[1].cities.add(cities[1],
+                                          function (err, link) {
+                                            if (err) {
+                                              console.error(err);
+                                            }
+                                          });
+                                          cartopartiesCreated[2].cities.add(cities[2],
+                                            function (err, link) {
+                                              if (err) {
+                                                console.error(err);
+                                              }
+                                            });
+                                            cartopartiesCreated[3].cities.add(cities[3],
+                                              function (err, link) {
+                                                if (err) {
+                                                  console.error(err);
+                                                }
+                                              });
+                                            }
+                                          });
+
+                                          Category.create([
+                                            {name: 'Bancs publics', description: 'Bancs avec un accès libre'},
+                                            {name: 'Toilettes publiques', description: 'Uniquement les toilettes sur la place publique'},
+                                            {name: 'Parcs', description: 'Parcs en accès libre ou payant'},
+                                            {name: 'Boîtes aux lettres', description: 'Boîtes aux lettres de la Poste'},
+                                            {name: 'Pharmacies', description: 'Pharmacies ou parapharmacies'}
+                                            ], function (err, categories) {
+                                              if (err) {
+                                                console.error(err);
+                                              } else {
+                                                // console.log('5 categories have been created:', categories);
+                                                cartopartiesCreated[0].records.create(
+                                                  {name: 'Pharmacie du centre', note: 'Ouverte du lundi au vendredi', userId: users[0].id},
+                                                  function (err, record) {
+                                                    if (err) {
+                                                      console.error (err);
+                                                    } else {
+                                                      // console.log('Record created by User 1:', record);
+                                                      categories[0].records.add(record, function (err, link) {
+                                                        if (err) {
+                                                          console.error(err);
+                                                        } else {
+                                                          // console.log('Record 1 is now in Category 1');
+                                                          Point.create(
+                                                            {coordinates: {lat: 64.124596, lng: -147.86327},
+                                                            recordId: record.id},
+                                                            function (err, record) {
+                                                              if (err) {
+                                                                console.error(err);
+                                                              } else {
+                                                                // console.log('Point 1 added to Record 1');
+                                                                User.login(
+                                                                  {email: 'test0@test.fr', password: 'test'},
+                                                                  function (err, acessToken) {
+                                                                    if (err) {
+                                                                      console.error('Error while trying to get a token:', err);
+                                                                    } else {
+                                                                      // console.log('Token generated for user test0:', acessToken.id);
+                                                                      console.log("Boot script was successfully executed.")
+                                                                    }
+                                                                  });
+                                                                }
+                                                              });
+                                                            }
+                                                          });
+                                                        }
+                                                      });
+                                                    }
+                                                  });
+                                                }
+                                              });
+                                            }
+                                          });
+
+}
+
+module.exports = function(app) {
+
+  var User = app.models.user;
+
+  // Check if database if not empty, in that case we do not need to
+  // execute our boot script
+  User.count(function(err, count) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      console.log("How many users do we have? " + count);
+      if (count > 0) {
+        console.log("Boot script was not executed.");
+        return;
+      }
+      else
+        createModels(app);
+    }
+  });
+
+};
