@@ -235,7 +235,13 @@ describe('REST', function() {
         .send({
           name: 'Pharmacie Martin',
           note: 'Pharmacie de garde ouverte du Mardi au Dimanche',
-          userId: userId
+          userId: userId, 
+		  points : [{
+		    coordinates: {
+			  lat: 48.3000000,
+			  lng: 4.0833300
+			}
+		  }]
         })
         .expect(200)
         .end(function(err, res) {
@@ -255,33 +261,16 @@ describe('REST', function() {
         .send({
           name: 'Pharmacie Martin',
           note: 'Pharmacie de garde ouverte du Mardi au Dimanche',
-          userId: userId
+          userId: userId, 
+		  points : [{
+		    coordinates: {
+			  lat: 48.3000000,
+			  lng: 4.0833300
+			}
+		  }]
         })
         .expect(401, function(err) {
           done(err);
-        });
-      });
-    });
-
-    describe('POST /Records/:id/points', function() {
-      it('should be able to add point to a record with a given id', function(done) {
-        json('post', '/api/Records/' + recordId + '/points')
-        .set('Authorization', token.id)
-        .send({
-          coordinates: {
-            lat: 48.3000000,
-            lng: 4.0833300
-          },
-          recordId: recordId
-        })
-        .expect(200)
-        .end(function(err, res) {
-          assert(typeof res.body === 'object');
-          assert(res.body.id, 'must have an id');
-          assert.equal(res.body.recordId, recordId);
-          assert.equal(res.body.coordinates.lat, 48.3000000);
-          assert.equal(res.body.coordinates.lng, 4.0833300);
-          done();
         });
       });
     });
@@ -290,7 +279,7 @@ describe('REST', function() {
       it('should return a list of all records along with points for a given id', function(done) {
         json('get', '/api/Cartoparties/' + cartopartyId + '/records')
         .set('Authorization', token.id)
-        .set('filter', '{"include":"points"}')
+        // .set('filter', '{"include":"points"}')
         .expect(200, function(err, res) {
           assert(typeof res.body === 'object');
           assert(res.body[0].id, 'must have an id');
