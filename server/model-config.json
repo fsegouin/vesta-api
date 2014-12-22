@@ -43,10 +43,6 @@
     "dataSource": "db",
     "public": true
   },
-  "Point": {
-    "dataSource": "db",
-    "public": false
-  },
   "Category": {
     "dataSource": "db",
     "public": true

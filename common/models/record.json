@@ -17,18 +17,18 @@
     },
     "userId": {
       "type": "number"
-    }
+    },
+	"coordinates": [
+	  {
+        "type": "geopoint"
+      }
+	]
   },
   "validations": [],
   "relations": {
     "categories": {
       "type": "hasAndBelongsToMany",
       "model": "Category",
-      "foreignKey": ""
-    },
-    "points": {
-      "type": "hasMany",
-      "model": "Point",
       "foreignKey": ""
     }
   },
@@ -75,6 +75,12 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "allRecords"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "inZone"
     }
   ],
   "methods": []

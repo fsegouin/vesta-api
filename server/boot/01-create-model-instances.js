@@ -10,7 +10,7 @@ module.exports = function(app) {
   var Category = app.models.Category;
   var City = app.models.City;
   var Record = app.models.Record;
-  var Point = app.models.Point;
+  // var Point = app.models.Point;
 
   User.create([
     {email: 'test0@test.fr', password: 'test'},
@@ -111,7 +111,12 @@ module.exports = function(app) {
                                 } else {
                                   // console.log('5 categories have been created:', categories);
                                   cartopartiesCreated[0].records.create(
-                                    {name: 'Pharmacie du centre', note: 'Ouverte du lundi au vendredi', userId: users[0].id},
+                                    {name: 'Pharmacie du centre',
+									note: 'Ouverte du lundi au vendredi',
+									userId: users[0].id,
+									points: [
+										{coordinates: {lat: 64.124596, lng: -147.86327}}
+									]},
                                     function (err, record) {
                                       if (err) {
                                         console.error (err);
@@ -122,23 +127,13 @@ module.exports = function(app) {
                                             console.error(err);
                                           } else {
                                             // console.log('Record 1 is now in Category 1');
-                                            Point.create(
-                                              {coordinates: {lat: 64.124596, lng: -147.86327},
-                                              recordId: record.id},
-                                              function (err, record) {
-                                                if (err) {
-                                                  console.error(err);
-                                                } else {
-                                                  // console.log('Point 1 added to Record 1');
-                                                  User.login(
-                                                    {email: 'test0@test.fr', password: 'test'},
-                                                    function (err, acessToken) {
-                                                      if (err) {
-                                                        console.error('Error while trying to get a token:', err);
-                                                      } else {
-                                                        // console.log('Token generated for user test0:', acessToken.id);
-                                                      }
-                                                    });
+                                              User.login(
+                                                {email: 'test0@test.fr', password: 'test'},
+                                                function (err, acessToken) {
+                                                  if (err) {
+                                                    console.error('Error while trying to get a token:', err);
+                                                  } else {
+                                                    // console.log('Token generated for user test0:', acessToken.id);
                                                   }
                                                 });
                                               }
