@@ -25,6 +25,8 @@ describe('REST', function() {
   var cartopartyId;
   var recordId;
   var cityId;
+  var lat = 48.3000000;
+  var lng = 4.0833300;
 
   describe('/api/users', function() {
     // hard-coded data
@@ -238,8 +240,8 @@ describe('REST', function() {
           userId: userId, 
 		  points : [{
 		    coordinates: {
-			  lat: 48.3000000,
-			  lng: 4.0833300
+			  lat: lat,
+			  lng: lng
 			}
 		  }]
         })
@@ -264,8 +266,8 @@ describe('REST', function() {
           userId: userId, 
 		  points : [{
 		    coordinates: {
-			  lat: 48.3000000,
-			  lng: 4.0833300
+			  lat: lat,
+			  lng: lng
 			}
 		  }]
         })
@@ -285,7 +287,7 @@ describe('REST', function() {
           assert(res.body[0].id, 'must have an id');
           assert.equal(res.body[0].id, recordId);
           assert.equal(res.body[0].cartopartyId, cartopartyId);
-          assert.equal(res.body[0].points[0].coordinates.lat, 48.3000000);
+          assert.equal(res.body[0].points[0].coordinates.lat, lat);
           done();
         });
       });
@@ -301,6 +303,21 @@ describe('REST', function() {
           assert(res.body['records'][0].id, 'must have an id');
           assert.equal(res.body['records'][0].cartopartyId, cartopartyId);
           assert.equal(res.body['records'][0].userId, userId);
+          done();
+        });
+      });
+    });
+
+    describe('GET /Records/inZone/:lat1/:lng1/:lat2/:lng2', function() {
+      it('should return a list of all records in a given area', function(done) {
+        json('get', '/api/Records/inZone/' + (lat - 1) + '/' + (lng - 1) + '/' + (lat + 1) + '/' + (lng + 1))
+        .set('Authorization', token.id)
+        .expect(200, function(err, res) {
+          assert(typeof res.body === 'object');
+          assert(typeof res.body['records'] === 'object');
+          assert(res.body['records'][0].id, 'must have an id');
+          assert(res.body['records'][0].points[0].coordinates.lat, lat);
+          assert(res.body['records'][0].points[0].coordinates.lng, lng);
           done();
         });
       });
