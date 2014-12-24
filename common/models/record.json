@@ -16,13 +16,11 @@
       "type": "string"
     },
     "userId": {
-      "type": "number"
+      "type": "string"
     },
-	"coordinates": [
-	  {
-        "type": "geopoint"
-      }
-	]
+    "points": [{
+      "type": "GeoPoint"
+    }]
   },
   "validations": [],
   "relations": {

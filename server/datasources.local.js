@@ -1,6 +1,6 @@
-var mongoUri = process.env.MONGOLAB_URI ||
-process.env.MONGOHQ_URL ||
-'mongodb://localhost/mydb';
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/db';
+
+console.log('MongoDB url: ' + mongoUri);
 
 module.exports = {
   db: {

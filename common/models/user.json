@@ -13,6 +13,18 @@
     },
     "birthDate": {
       "type": "string"
+    },
+    "picture": {
+      "type": "string"
+    },
+    "expert": {
+      "type": "boolean"
+    },
+    "moderator": {
+      "type": "boolean"
+    },
+    "elder": {
+      "type": "boolean"
     }
   },
   "validations": [],
@@ -63,6 +75,13 @@
       "principalId": "$owner",
       "permission": "ALLOW",
       "property": "__link__cartoparties"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__unlink__cartoparties"
     }
   ],
   "methods": []
