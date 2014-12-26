@@ -1,6 +1,7 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 
+var http = require('http');
 var https = require('https');
 var sslConfig = require('./ssl-config');
 
