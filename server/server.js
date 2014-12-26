@@ -1,6 +1,9 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 
+var https = require('https');
+var sslConfig = require('./ssl-config');
+
 var app = module.exports = loopback();
 
 // Set up the /favicon.ico
@@ -29,12 +32,26 @@ app.use(loopback.urlNotFound());
 // The ultimate error handler.
 app.use(loopback.errorHandler());
 
-app.start = function() {
-  // start the web server
-  return app.listen(function() {
-    app.emit('started');
-    console.log('Web server listening at: %s', app.get('url'));
+app.start = function(httpOnly) {
+  if(httpOnly === undefined) {
+    httpOnly = process.env.HTTP;
+  }
+  var server = null;
+  if(!httpOnly) {
+    var options = {
+      key: sslConfig.privateKey,
+      cert: sslConfig.certificate
+    };
+    server = https.createServer(options, app);
+  } else {
+    server = http.createServer(app);
+  }
+  server.listen(app.get('port'), function() {
+    var baseUrl = (httpOnly? 'http://' : 'https://') + app.get('host') + ':' + app.get('port');
+    app.emit('started', baseUrl);
+    console.log('LoopBack server listening @ %s%s', baseUrl, '/');
   });
+  return server;
 };
 
 // start the server if `$ node server.js`
