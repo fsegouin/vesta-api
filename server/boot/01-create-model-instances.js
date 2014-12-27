@@ -265,8 +265,8 @@ function createModels(app) {
                                       } else {
                                         // console.log('5 categories have been created:', categories);
                                         cartopartiesCreated[0].records.create({
-                                          name: 'Pharmacie du centre',
-                                          note: 'Ouverte du lundi au vendredi',
+                                          name: 'Toilettes mixtes du centre',
+                                          note: 'Propreté impeccable, 1€ par utilisation.',
                                           userId: users[0].id,
                                           points: [
                                             {lat: 64.124596, lng: -147.86327}
