@@ -86,6 +86,12 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "inZone"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findAll"
     }
   ],
   "methods": []

@@ -31,6 +31,16 @@ module.exports = function(Record) {
 			}
 		});
 	};
+	
+	Record.findAll = function(cb){
+		Record.find({fields:{'id': true, 'name':true}},	function(err, records) {
+			if(err) {
+				cb(err);
+			} else {
+				cb(err, records);
+			}
+		});
+	};
 
 	
 
@@ -56,6 +66,14 @@ module.exports = function(Record) {
             {arg: 'lng2', type: 'number', required: true}, 
             {arg: 'limit', type: 'number', default:30}
           ],
+          returns: {arg: 'records', type: 'object'}
+        }
+    );
+	
+	Record.remoteMethod(
+        'findAll',
+        {
+          http: {verb: 'get', path: '/findAll'},
           returns: {arg: 'records', type: 'object'}
         }
     );
