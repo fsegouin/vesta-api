@@ -312,8 +312,22 @@ describe('REST', function() {
           assert(typeof res.body === 'object');
           assert(typeof res.body['records'] === 'object');
           assert(res.body['records'][0].id, 'must have an id');
-          assert(res.body['records'][0].points[0].lat, 14);
-          assert(res.body['records'][0].points[0].lng, 33);
+          assert.equal(res.body['records'][0].points[0].lat, 14);
+          assert.equal(res.body['records'][0].points[0].lng, 33);
+          done();
+        });
+      });
+    });
+
+    describe('GET /Records/findAll', function() {
+      it('should return a list of all records with only name & id', function(done) {
+        json('get', '/api/Records/findAll')
+        .set('Authorization', token.id)
+        .expect(200, function(err, res) {
+          assert(typeof res.body === 'object');
+          assert(typeof res.body['records'] === 'object');
+          assert(res.body['records'][0].id, 'must have an id');
+          assert(res.body['records'][0].name, 'must have name');
           done();
         });
       });
