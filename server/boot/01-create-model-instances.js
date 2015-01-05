@@ -104,21 +104,25 @@ function createModels(app) {
 
       Cartoparty.create([{
         description: 'Toilettes publiques de Reims',
+        private: false,
         from: '04-04-15',
         to: '06-05-15',
         ownerId: users[0].id
       }, {
         description: 'Pharmacies de Paris',
+        private: false,
         from: '01-02-15',
         to: '02-03-15',
         ownerId: users[1].id
       }, {
         description: 'Boîtes aux lettres de Lyon',
+        private: false,
         from: '05-03-15',
         to: '06-04-15',
         ownerId: users[5].id
       }, {
         description: 'Parcs de Marseille',
+        private: false,
         from: '11-01-15',
         to: '12-02-15',
         ownerId: users[6].id

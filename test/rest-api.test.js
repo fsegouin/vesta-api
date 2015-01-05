@@ -84,6 +84,7 @@ describe('REST', function() {
       .set('Authorization', token.id)
       .send({
         description: '13ème arrondissement de Paris',
+        private: false,
         from: '2014-02-01T00:00:00.000Z',
         to: '2014-03-01T00:00:00.000Z'
       })
@@ -235,7 +236,7 @@ describe('REST', function() {
         .send({
           name: 'Pharmacie Martin',
           note: 'Pharmacie de garde ouverte du Mardi au Dimanche',
-          userId: userId, 
+          userId: userId,
 		  points : [{
 			  lat: 14,
 			  lng: 33
@@ -260,7 +261,7 @@ describe('REST', function() {
     //     .send({
     //       name: 'Pharmacie Martin',
     //       note: 'Pharmacie de garde ouverte du Mardi au Dimanche',
-    //       userId: userId, 
+    //       userId: userId,
     //       points : [{
     //         lat: 14,
     //         lng: 33
@@ -305,7 +306,7 @@ describe('REST', function() {
 
     describe('GET /Records/inZone/:lat1/:lng1/:lat2/:lng2', function() {
       it('should return a list of all records in a given area', function(done) {
-        json('get', '/api/Records/inZone/' + (14 - 1) + 
+        json('get', '/api/Records/inZone/' + (14 - 1) +
         '/' + (33 - 1) + '/' + (14 + 1) + '/' + (33 + 1))
         .set('Authorization', token.id)
         .expect(200, function(err, res) {
