@@ -55,6 +55,20 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "__get__records"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__link__records"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__unlink__records"
     }
   ],
   "methods": []

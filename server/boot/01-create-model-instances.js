@@ -259,6 +259,15 @@ function createModels(app) {
                                     }, {
                                       name: 'Pharmacies',
                                       description: 'Pharmacies ou parapharmacies'
+                                    }, {
+                                      name: 'POI',
+                                      description: 'Point d\'intérêt unique'
+                                    }, {
+                                      name: 'Bâtiment',
+                                      description: 'A utiliser pour tous les bâtiments'
+                                    }, {
+                                      name: 'Zone',
+                                      description: 'Pour tout type de zone (parcs, etc)'
                                     }], function(err, categories) {
                                       if (err) {
                                         console.error(err);
@@ -277,7 +286,7 @@ function createModels(app) {
                                             console.error(err);
                                           } else {
                                             // console.log('Record created by User 1:', record);
-                                            categories[0].records.add(record, function(err, link) {
+                                            categories[5].records.add(record, function(err, link) {
                                               if (err) {
                                                 console.error(err);
                                               } else {
