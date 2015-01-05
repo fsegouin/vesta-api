@@ -15,6 +15,9 @@
     "picture": {
       "type": "string"
     },
+    "type": {
+      "type": "string"
+    },
     "userId": {
       "type": "string"
     },
