@@ -7,6 +7,12 @@ API pour le projet VESTA
 
 Stable version available at Heroku: https://vesta-api.herokuapp.com
 
+## Notes
+
+This current version is made for development purposes only and needs a few tweaks to be used as production. Indeed, a boot script has been written (vesta-api/server/boot/01-create-model-instances.js) to insert random data (users & cartoparties) in order for the developers to work quickly and efficiently.
+
+If you would like to use Vesta as production, please make sure you wipe your mongodb database and then create an admin user. If any user is already added, the boot script will be skipped; or you could simply delete the boot script.
+
 ## Installation
 
 ### Step 1 : Clone this repo
