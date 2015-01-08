@@ -13,6 +13,8 @@ This current version is made for development purposes only and needs a few tweak
 
 If you would like to use Vesta as production, please make sure you wipe your mongodb database and then create an admin user. If any user is already added, the boot script will be skipped; or you could simply delete the boot script.
 
+File server used for pictures can be found here: https://github.com/fsegouin/vesta-fileserver
+
 ## Installation
 
 ### Step 1 : Clone this repo
