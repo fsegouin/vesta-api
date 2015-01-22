@@ -5,7 +5,7 @@ API pour le projet VESTA
 
 ## Releases
 
-Stable version available at Heroku: https://vesta-api.herokuapp.com
+Stable version available at Heroku: https://vesta-api.herokuapp.com/explorer/
 
 ## Notes
 
