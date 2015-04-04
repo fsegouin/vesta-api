@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/fsegouin/vesta-api.svg)](https://travis-ci.org/fsegouin/vesta-api)
 # vesta-api
 
-API pour le projet VESTA
+API pour le projet [VESTA](http://florentsegouin.me/vesta/)
 
 ## Releases
 
